@@ -6,7 +6,7 @@ const useToggleTodo = (id: number, completed: boolean) => {
 
   const { mutate } = useMutation({
     mutationFn: () => toggleTodoStatus(id, !completed),
-    onSuccess: () => client.invalidateQueries(['todos']),
+    onSuccess: () => client.invalidateQueries({ queryKey: ['todos'] }),
   });
 
   return mutate;

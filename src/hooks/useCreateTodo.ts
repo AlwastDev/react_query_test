@@ -8,7 +8,7 @@ const useCreateTodo = () => {
   const { mutate } = useMutation({
     mutationFn: (title: string) => createTodo(title),
     onSuccess: (newTodo) => {
-      client.setQueriesData<Todo[]>(['todos', 'all'], (oldTodos) => {
+      client.setQueriesData<Todo[]>({ queryKey: ['todos', 'all'] }, (oldTodos) => {
         return [...(oldTodos || []), newTodo];
       });
       client.invalidateQueries({
@@ -19,7 +19,7 @@ const useCreateTodo = () => {
   });
 
   return { createTodo: (title: string) => mutate(title) };
-}
+};
 
 
 export { useCreateTodo };

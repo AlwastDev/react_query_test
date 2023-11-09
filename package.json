@@ -6,9 +6,10 @@
   "scripts": {
     "start": "concurrently \"yarn dev\" \"yarn server\"",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "rm -rf dist & tsc && vite build",
     "server": "json-server --watch db.json --port 3001",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^4.1.1",
     "concurrently": "^8.2.2",
+    "gh-pages": "^6.0.0",
     "json-server": "^0.17.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

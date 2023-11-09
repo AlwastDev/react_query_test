@@ -8,7 +8,7 @@ const useDeleteTodo = (id: number) => {
   const { mutate } = useMutation({
     mutationFn: () => deleteTodo(id),
     onSuccess: () => {
-      client.setQueriesData<Todo[]>(['todos'], (oldTodos) => {
+      client.setQueriesData<Todo[]>({ queryKey: ['todos'] }, (oldTodos) => {
         return [...(oldTodos?.filter((oldTodo) => oldTodo.id !== id) || [])];
       });
       client.invalidateQueries({
@@ -21,6 +21,6 @@ const useDeleteTodo = (id: number) => {
   return mutate;
 };
 
-export { useDeleteTodo }
+export { useDeleteTodo };
 
 

@@ -9,7 +9,7 @@ export async function fetchTodos(state: TodoState = 'all'): Promise<Todo[]> {
 
   if (!res.ok) throw new Error('Failed to fetch todos!')
 
-  return res.json()
+  return res.json().then((data) => data.data)
 }
 
 export async function toggleTodoStatus(todoId: string, isComplete: boolean) {

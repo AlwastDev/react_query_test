@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, ButtonGroup, Stack } from '@chakra-ui/react';
-import { TodoState } from '../../types/todo';
+import { TodoState } from '../../types/todo.ts';
 import { TodoList } from '../TodoList/TodoList';
 
 const TodoViewer = () => {
@@ -25,7 +25,7 @@ const TodoViewer = () => {
           variant={view === 'completed' ? 'outline' : 'solid'}
           onClick={() => setView('completed')}
         >
-          completed
+          isComplete
         </Button>
       </ButtonGroup>
 

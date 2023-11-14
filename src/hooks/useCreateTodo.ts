@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createTodo } from '../services/TodoService';
+import { createTodo } from '@services/TodoService';
 import { Todo } from '../types/todo';
 
 const useCreateTodo = () => {

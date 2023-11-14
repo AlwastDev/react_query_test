@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { FormEventHandler, useState } from 'react';
 import { Button, Input, Stack } from '@chakra-ui/react';
-import { useCreateTodo } from '../../hooks';
+import { useCreateTodo } from '@hooks/index.ts';
 
 const NewTodo = () => {
   const [title, setTitle] = useState('');
 
   const { createTodo } = useCreateTodo();
 
-  const submit: React.FormEventHandler<HTMLFormElement> = (event) => {
+  const submit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     if (title) {
       createTodo(title);

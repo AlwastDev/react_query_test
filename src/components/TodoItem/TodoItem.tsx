@@ -2,17 +2,17 @@ import { Checkbox, IconButton, ListItem, Stack } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { FC } from 'react';
 import { TodoItemProps } from './types';
-import { useDeleteTodo, useToggleTodo } from '../../hooks';
+import { useDeleteTodo, useToggleTodo } from '@hooks/index.ts';
 
-const TodoItem: FC<TodoItemProps> = ({ completed, id, title }) => {
-  const toggle = useToggleTodo(id, completed);
-  const remove = useDeleteTodo(id);
+const TodoItem: FC<TodoItemProps> = ({ isComplete, _id, todoName }) => {
+  const toggle = useToggleTodo(_id, isComplete);
+  const remove = useDeleteTodo(_id);
 
   return (
     <ListItem >
-      <Stack spacing={4} direction='row' margin="0 0 20px 0">
+      <Stack spacing={200} direction='row' margin="0 0 20px 0">
         <div onClick={() => toggle()}>
-          <Checkbox width="200px" isChecked={completed}>{title}</Checkbox>
+          <Checkbox width="200px" isChecked={isComplete}>{todoName}</Checkbox>
         </div>
         <div>
           <IconButton

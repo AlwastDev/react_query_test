@@ -1,7 +1,7 @@
-import { toggleTodoStatus } from '../services/TodoService';
+import { toggleTodoStatus } from '@services/TodoService';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const useToggleTodo = (id: number, completed: boolean) => {
+const useToggleTodo = (id: string, completed: boolean) => {
   const client = useQueryClient();
 
   const { mutate } = useMutation({

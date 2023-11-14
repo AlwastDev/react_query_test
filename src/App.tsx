@@ -1,4 +1,4 @@
-import { Container, Divider, Stack } from '@chakra-ui/react';
+import { Container, Stack } from '@chakra-ui/react';
 import { NewTodo, TodoViewer } from './components';
 
 function App() {
@@ -7,7 +7,6 @@ function App() {
       <Stack spacing={4}>
         <NewTodo />
         <TodoViewer />
-        <Divider />
       </Stack>
     </Container>
   );

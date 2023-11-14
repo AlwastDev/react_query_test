@@ -1,4 +1,4 @@
-import { Todo, TodoState } from '../types/todo'
+import { Todo, TodoState } from '../types/todo';
 
 const BASE = import.meta.env.VITE_todosAPI;
 
@@ -12,34 +12,34 @@ export async function fetchTodos(state: TodoState = 'all'): Promise<Todo[]> {
   return res.json()
 }
 
-export async function toggleTodoStatus(todoId: number, completed: boolean) {
+export async function toggleTodoStatus(todoId: string, isComplete: boolean) {
   const res = await fetch(`${BASE}/${todoId}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ completed }),
+    method: 'PUT',
+    body: JSON.stringify({ isComplete }),
     headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  return res.json()
+      'Content-Type': 'application/json',
+    },
+  });
+  return res.json();
 }
 
-export async function createTodo(title: string) {
+export async function createTodo(todoName: string) {
   const res = await fetch(BASE, {
-    method: "POST",
-    body: JSON.stringify({ title, completed: false }),
+    method: 'POST',
+    body: JSON.stringify({ todoName, isComplete: false }),
     headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  return res.json()
+      'Content-Type': 'application/json',
+    },
+  });
+  return res.json();
 }
 
-export async function deleteTodo(id: number) {
+export async function deleteTodo(id: string) {
   const res = await fetch(`${BASE}/${id}`, {
-    method: "DELETE",
+    method: 'DELETE',
     headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  return res.json()
+      'Content-Type': 'application/json',
+    },
+  });
+  return res.json();
 }

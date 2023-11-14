@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://alwastdev.github.io/react_query_test",
   "scripts": {
     "start": "concurrently \"yarn dev\" \"yarn server\"",
     "dev": "vite",
@@ -24,6 +23,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.9.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^4.1.1",
